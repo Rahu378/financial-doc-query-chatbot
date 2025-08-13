@@ -1,7 +1,5 @@
 # Financial Document Query Chatbot
 
-> Explore similar LLM projects at [gowrish28gog](https://github.com/gowrish28gog/).
-
 A chatbot that uses **Retrieval-Augmented Generation (RAG)** to query and summarize financial documents (10-Q, 10-K). Users can ask questions and get accurate, concise financial insights.
 
 ![RAG Chatbot](./assets/rag_chatbot_10q.png)
