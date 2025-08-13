@@ -31,3 +31,10 @@ Modified from [blog.goopenai](https://blog.goopenai.com)
 ```bash
 pip install -r requirements.txt
 
+## Run
+''' bash
+
+Copy
+Edit
+python index.py
+
