@@ -1,58 +1,72 @@
 # Financial Document Query Chatbot
 
-**Technologies:** Kendra, AWS (S3, Lambda, Amplify), RAG, LangChain, CUDA, PyTorch, GPT-3.5, LLaMA 2, Gemma 1.1  
+> Explore similar LLM projects at [gowrish28gog](https://github.com/gowrish28gog/).
 
-**Timeline:** May 2024  
+A chatbot that uses **Retrieval-Augmented Generation (RAG)** to query and summarize financial documents (10-Q, 10-K). Users can ask questions and get accurate, concise financial insights.
 
----
-
-## Overview
-A chatbot designed to query PDF financial documents (10-Q, 10-K) using Retrieval-Augmented Generation (RAG). Users can ask questions, retrieve relevant document sections, and calculate key financial metrics such as EV/EBITDA for M&A decisions. GPT-3.5-turbo improved retrieval accuracy by 25%, enhancing decision-making efficiency by 30%.
+![RAG Chatbot](./assets/rag_chatbot_10q.png)
 
 ---
 
-## Features
-- Query financial PDFs and extract relevant information.
-- Summarize key financial metrics in concise two-sentence responses.
-- Compare outputs across GPT-3.5-turbo, LLaMA 2, and Gemma 1.1.
-- Mitigate hallucinations with RAG for more faithful answers.
+## Key Features
+
+- Query PDFs of financial reports and extract key information.
+- Summarize key financial metrics in **two-sentence answers**.
+- Compare outputs from multiple models: **GPT-3.5-turbo, LLaMA 2, Gemma 1.1, Flan-T5**.
+- Reduces hallucinations often seen in standard LLM responses.
 - User-friendly chatbot interface.
 
 ---
 
-## Technical Problem Formulation
-- **Problem Statement:** Given a PDF and a query, retrieve and synthesize relevant details accurately.
-- **Data Ingestion:** Reading and splitting long financial documents for efficient chunking.
-- **RAG:** Combines document retrieval with language model generation.
-- **LLMs Evaluated:** GPT-3.5, LLaMA 2, Gemma 1.1, Flan-T5.
-- **Prompt Design:** Two-sentence financial summaries.
-- **User Interface:** Chatbot-like interface for interaction.
+## How It Works
+
+1. **Problem:** Given a PDF and a question, retrieve relevant information and generate accurate answers.
+2. **Data Processing:** PDFs are split into chunks for faster and more accurate retrieval.
+3. **RAG:** Combines document retrieval with language model generation.
+4. **Prompt Design:** Prompts crafted for concise and relevant financial summaries.
+5. **UI:** Simple chatbot interface for interactive queries.
+
+<figure>
+    <img src="./assets/llm_hallucination.png" width="300">
+    <figcaption>GPT-4 without RAG can hallucinate; RAG reduces this issue.</figcaption>
+</figure>
 
 ---
 
 ## System Architecture
-Modified from [blog.goopenai](https://blog.goopenai.com)
 
-![System Architecture](path/to/architecture_diagram.png)  <!-- Replace with your diagram path -->
+![System Architecture](./assets/rag_architecture.png)
+
+Modified from [blog.goopenai](https://blog.gopenai.com/retrieval-augmented-generation-rag-using-llama-2-chromadb-together-ai-for-retrieval-qa-80e7045a6c79)
 
 ---
 
-## LLMs and Experiments
-- GPT-3.5
-- LLaMA 2
-- Gemma 1.1
-- Flan-T5
+## Models & Experiments
+
+- GPT-3.5-turbo  
+- LLaMA 2  
+- Gemma 1.1  
+- Flan-T5  
+
+![Models Experiment](./assets/models_experiment.png)
 
 ---
 
 ## Evaluation Metrics
-- **Faithfulness:** Measures factual consistency of generated answers against the given context.
-- **Answer Relevancy:** Scores relevancy of answers according to the given question. Incomplete, redundant, or unnecessary information is penalized.
-- **Context Recall:** Measures the extent to which retrieved context aligns with the annotated answer (ground truth).
-- **Context Precision:** Evaluates whether all ground-truth relevant items present in the contexts are ranked higher.
+
+**Generation Metrics:**  
+- **Faithfulness:** Is the answer factually correct based on the document?  
+- **Answer Relevancy:** Does the answer directly address the question?  
+
+**Retrieval Metrics:**  
+- **Context Recall:** How well the retrieved content matches the ground-truth answer.  
+- **Context Precision:** Are the most relevant parts ranked at the top?  
+
+![GPT-3.5 Evaluation](./assets/gpt35_eval.png)
 
 ---
 
 ## Installation
+
 ```bash
 pip install -r requirements.txt
